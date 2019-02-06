@@ -90,7 +90,7 @@ const FilterManager = ({
           ))}
         </Select>
       </FormControl>
-      {savedFilterIndex == -1 && (
+      {savedFilterIndex === -1 && (
         <div style={{ marginLeft: '10px' }}>
           <FormControl>
             <InputLabel htmlFor="newFilterName">Filter Name</InputLabel>
