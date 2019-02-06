@@ -19,7 +19,9 @@ import {
   MenuItem,
   Button,
   Input,
-  Toolbar
+  Toolbar,
+  Card,
+  CardContent
 } from '@material-ui/core';
 
 const FilterManager = ({
@@ -165,38 +167,46 @@ const App = () => {
 
   return (
     <div id="main">
-      <FilterManager
-        savedFilterIndex={savedFilterIndex}
-        savedFilterChanged={({ index, filter }) => {
-          setSavedFilterIndex(index);
-          setCurrentFilter(filter);
-        }}
-        externalFilter={currentFilter}
-      />
-      <Grid rows={rows} columns={columns}>
-        <DataTypeProvider
-          for={['year']}
-          availableFilterOperations={[
-            'equal',
-            'notEqual',
-            'greaterThan',
-            'greaterThanOrEqual',
-            'lessThan',
-            'lessThanOrEqual'
-          ]}
-        />
-        <FilteringState
-          filters={currentFilter}
-          onFiltersChange={filters => {
-            setCurrentFilter(filters);
-            setSavedFilterIndex(-1);
-          }}
-        />
-        <IntegratedFiltering />
-        <Table />
-        <TableHeaderRow />
-        <TableFilterRow showFilterSelector={true} />
-      </Grid>
+      <Card style={{ marginBottom: '20px' }} raised>
+        <CardContent>
+          <FilterManager
+            savedFilterIndex={savedFilterIndex}
+            savedFilterChanged={({ index, filter }) => {
+              setSavedFilterIndex(index);
+              setCurrentFilter(filter);
+            }}
+            externalFilter={currentFilter}
+          />
+        </CardContent>
+      </Card>
+      <Card raised>
+        <CardContent>
+          <Grid rows={rows} columns={columns}>
+            <DataTypeProvider
+              for={['year']}
+              availableFilterOperations={[
+                'equal',
+                'notEqual',
+                'greaterThan',
+                'greaterThanOrEqual',
+                'lessThan',
+                'lessThanOrEqual'
+              ]}
+            />
+            <FilteringState
+              filters={currentFilter}
+              onFiltersChange={filters => {
+                setCurrentFilter(filters);
+                setSavedFilterIndex(-1);
+              }}
+            />
+            <IntegratedFiltering />
+            <Table />
+            <TableHeaderRow />
+            <TableFilterRow showFilterSelector={true} />
+          </Grid>
+        </CardContent>
+      </Card>
     </div>
   );
 };
