@@ -36,6 +36,12 @@ const FilterManager = ({
       {
         name: 'Released after 1990',
         filter: [{ columnName: 'year', operation: 'greaterThan', value: 1990 }]
+      },
+      {
+        name: 'Released before 1990',
+        filter: [
+          { columnName: 'year', operation: 'lessThanOrEqual', value: 1990 }
+        ]
       }
     ])
   );
