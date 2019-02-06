@@ -151,7 +151,7 @@ const App = () => {
       { name: 'year', title: 'Year' }
     ])
   );
-  const [currentFilter, setCurrentFilter] = useState(Immutable([]));
+  const [currentFilter, setCurrentFilter] = useState([]);
   const [savedFilterIndex, setSavedFilterIndex] = useState(-1);
 
   return (
