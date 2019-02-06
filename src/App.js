@@ -171,7 +171,7 @@ const App = () => {
       <Card style={{ marginBottom: '20px' }} raised>
         <CardHeader
           title="Filter Management"
-          subheader="Select a saved filter, or enter a name and click the button to save current the current filter setup to the list."
+          subheader="Select a saved filter, or enter a name and click the button to save the current filter setup to the list."
         />
         <CardContent>
           <FilterManager
