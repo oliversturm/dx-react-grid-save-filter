@@ -48,7 +48,10 @@ const FilterManager = ({
   const selectFilterIndex = index =>
     savedFilterChanged({
       index,
-      filter: index >= 0 ? Immutable.asMutable(filters[index].filter) : []
+      filter:
+        index >= 0
+          ? Immutable.asMutable(filters[index].filter, { deep: true })
+          : []
     });
   const [newFilterName, setNewFilterName] = useState('');
   const saveFilter = () => {
