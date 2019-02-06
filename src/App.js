@@ -21,7 +21,8 @@ import {
   Input,
   Toolbar,
   Card,
-  CardContent
+  CardContent,
+  CardHeader
 } from '@material-ui/core';
 
 const FilterManager = ({
@@ -168,6 +169,10 @@ const App = () => {
   return (
     <div id="main">
       <Card style={{ marginBottom: '20px' }} raised>
+        <CardHeader
+          title="Filter Management"
+          subheader="Select a saved filter, or enter a name and click the button to save current the current filter setup to the list."
+        />
         <CardContent>
           <FilterManager
             savedFilterIndex={savedFilterIndex}
